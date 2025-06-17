@@ -1,0 +1,113 @@
+/* finally change the font */
+@font-face {
+    font-family: "TitilliumWeb-Regular";
+    src: url(../webfonts/TitilliumWeb-SemiBold.ttf);
+}
+
+body {
+    background-color: #24353F;
+}
+
+h1 {
+    color: #17a2b8;
+    font-family: "TitilliumWeb-Regular";
+    font-size: 2.5rem;
+    font-weight: 500;
+}
+
+input {
+    background-color: inherit;
+    border-radius: 4px;
+    border: 1px solid white;
+    width: 100%;
+}
+
+.costum-container {
+    box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.7);
+}
+
+:root,
+[data-bs-theme=light] {
+    --bs-body-bg: #24353F;
+    --bs-body-color: #ffffff;
+}
+
+
+.form-control:focus {
+    box-shadow: 0 0 0 0 rgba(13, 110, 253, .25);
+}
+
+#InputEmail1::placeholder {
+    color: #ced4da;
+}
+
+#InputPassword::placeholder {
+    color: #ced4da;
+}
+
+
+#InputName::placeholder {
+    color: #ced4da;
+}
+
+#SignupInputName::placeholder {
+    color: #ced4da;
+}
+
+#SignupInputEmail1::placeholder {
+    color: #ced4da;
+}
+
+#SignupInputPassword::placeholder {
+    color: #ced4da;
+}
+
+.border-test {
+    border: 2px solid red;
+}
+
+.btn-info {
+    --bs-btn-bg: inherit;
+    --bs-btn-color: #17A2B8;
+}
+
+.margin-buttom {
+    margin-bottom: 2.2rem;
+}
+
+.btn:hover {
+    color: white;
+    background-color: #17a2b8;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.custom-w-85 {
+    width: 85%;
+}
+
+
+
+.bg-body-tertiary {
+--bs-tertiary-bg-rgb:36, 53, 63;
+    box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.7);
+
+}
+
+
+
+
+
+
+.btn-outline-success {
+    --bs-btn-color: #17a2b8;
+    --bs-btn-border-color: #17a2b8;
+}
+
+

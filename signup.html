@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>Sign Up</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Sign Up" />
+    <meta name="keyword" content="Sign Up" />
+    <meta name="author" content="Ahmed Saleh" />
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/mediaQ.css">
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+
+    <!-- Sign up section -->
+    <section class="d-flex justify-content-center align-items-center vh-100">
+        <div class="container  w-75 h-75 h-xl-65 w-xl-65  costum-container ">
+            <div class="row d-flex justify-content-center align-items-center">
+
+                <h1 class="mt-3 mb-3 mt-sm-5 mb-sm-4 text-center">Smart Login System</h1>
+
+                <section class="custom-w-85 text-center ">
+
+                    <div class="mb-3">
+                        <input type="text" class="form-control" id="SignupInputName" aria-describedby="emailHelp"
+                            placeholder="Enter your name">
+                        <p class="d-none text-danger text-start">Please enter a username between 3–15 characters. Use lowercase letters, numbers, _ or -.No spaces or capitals.</p>
+                    </div>
+
+                    <div class="mb-3">
+                        <input type="email" class="form-control" id="SignupInputEmail1" aria-describedby="emailHelp"
+                            placeholder="Enter your email">
+                        <p class="d-none text-danger text-start">Must be a valid email, like name@example.com.</p>
+                        <p class="d-none text-danger text-start d-none" id="existEmail" >Email already exists - write another email</p>
+
+                    </div>
+
+                    <div class="margin-buttom">
+                        <input type="password" class="form-control" id="SignupInputPassword"
+                            aria-describedby="passwordHelp" placeholder="Enter your password">
+                        <p class="d-none text-danger text-start">At least 8 characters, with:1 uppercase letter , 1 lowercase letter , 1 number , 1 special character (e.g. @, #, !)</p>
+                    </div>
+
+                    <button onclick="addUser()" type="button" class="btn btn-info w-100 mb-2">Sign up</button>
+
+                    <p>You have account? <a class=" text-white" href="index.html">Signin</a></p>
+
+                </section>
+
+
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/index.js"></script>
+
+</body>
+
+</html>

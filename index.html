@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>Smart Login System</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Smart Login System site" />
+    <meta name="keyword" content="Login" />
+    <meta name="author" content="Ahmed Saleh" />
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/mediaQ.css">
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+
+    <!-- login section -->
+    <section class="d-flex justify-content-center align-items-center vh-100">
+        <div class="container  w-75 h-75 h-xl-65 w-xl-65  costum-container ">
+            <div class="row d-flex justify-content-center align-items-center">
+
+                <h1 class="mt-5 mb-4 text-center">Smart Login System</h1>
+
+                <section class="custom-w-85 text-center ">
+
+                    <div class="mb-3">
+                        <input type="email" class="form-control" id="InputEmail1" aria-describedby="emailHelp"
+                            placeholder="Enter your email">
+                        <p class="d-none text-danger text-start">mail not exist</p>
+                    </div>
+
+                    <div class="margin-buttom">
+                        <input type="password" class="form-control" id="InputPassword" aria-describedby="passwordHelp"
+                            placeholder="Enter your password">
+
+                        <p class="d-none text-danger text-start">password wrong</p>
+                    </div>
+
+                    <button onclick="enterToSite()" type="button" class="btn btn-info w-100 mb-2">Login</button>
+
+                    <p>Don’t have an account? <a class=" text-white" href="signup.html">Sign Up</a></p>
+
+                </section>
+
+
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/index.js"></script>
+
+</body>
+
+</html>
