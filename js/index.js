@@ -3,10 +3,10 @@
 // Sign up section  =====================
 
 
-const userName = document.getElementById("SignupInputName");
-const userEmail = document.getElementById("SignupInputEmail1");
-const userPassword = document.getElementById("SignupInputPassword");
-const existEmail = document.getElementById("existEmail");
+const userName = document.querySelector("#SignupInputName");
+const userEmail = document.querySelector("#SignupInputEmail1");
+const userPassword = document.querySelector("#SignupInputPassword");
+const existEmail = document.querySelector("#existEmail");
 
 const LocalStorageKey = "userKey";
 const LocalStorageKeyLogin = "loginKey";
@@ -135,8 +135,8 @@ function existEmailTest(element) {
 
 //  login section ==============
 
-const loginEmail = document.getElementById("InputEmail1");
-const loginPassword = document.getElementById("InputPassword");
+const loginEmail = document.querySelector("#InputEmail1");
+const loginPassword = document.querySelector("#InputPassword");
 
 
 function existEmailLogin(element) {
