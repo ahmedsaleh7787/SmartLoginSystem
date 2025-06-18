@@ -30,6 +30,12 @@ if (JSON.parse(localStorage.getItem(LocalStorageKeyLogin))) {
 }
 
 
+var register=document.querySelector("#btn-register");
+
+if (register) {
+register.addEventListener('click',addUser);
+}
+
 function addUser() {
 
     if (existEmailTest(userEmail)) {
@@ -152,7 +158,11 @@ function existEmailLogin(element) {
 }
 
 
+var enterTo = document.querySelector('#btn-enterToSite');
 
+if (enterTo) {
+enterTo.addEventListener('click',enterToSite);
+}
 
 let loginUser = [];
 
