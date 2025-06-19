@@ -46,7 +46,7 @@ function addUser() {
 
         if (validation(userName) && validation(userEmail) && validation(userPassword)) {
 
-            let infos = {
+            const infos = {
                 newName: userName.value,
                 newEmail: userEmail.value,
                 newPassword: userPassword.value,
@@ -172,7 +172,7 @@ enterTo.addEventListener('click',function (event) {
 });
 }
 
-let loginUser = [];
+const loginUser = [];
 
 function enterToSite() {
 
