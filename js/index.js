@@ -32,6 +32,7 @@ if (JSON.parse(localStorage.getItem(LocalStorageKeyLogin))) {
 
 const register=document.querySelector("#btn-register");
 
+
 if (register) {
 register.addEventListener('click',function (e) {
     e.preventDefault();//no need here but i add it to learn
@@ -42,6 +43,11 @@ register.addEventListener('click',function (e) {
 function addUser() {
 
     if (existEmailTest(userEmail)) {
+        
+        existEmail.classList.replace("d-block", "d-none");
+        userEmail.classList.add("is-valid");
+        userEmail.classList.remove("is-invalid");
+
 
 
         if (validation(userName) && validation(userEmail) && validation(userPassword)) {
@@ -67,6 +73,10 @@ function addUser() {
     } else {
 
         existEmail.classList.replace("d-none", "d-block");
+        userEmail.classList.add("is-invalid");
+        userEmail.classList.remove("is-valid");
+        userEmail.nextElementSibling.classList.replace("d-block", "d-none");
+
     }
 }
 
@@ -132,6 +142,7 @@ function existEmailTest(element) {
     for (let i = 0; i < infoList.length; i++) {
 
         if (infoList[i].newEmail === element.value) {
+
             return false;
         }
     }
