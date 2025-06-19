@@ -1,4 +1,4 @@
-
+"use strict"
 
 // Sign up section  =====================
 
@@ -30,7 +30,7 @@ if (JSON.parse(localStorage.getItem(LocalStorageKeyLogin))) {
 }
 
 
-var register=document.querySelector("#btn-register");
+const register=document.querySelector("#btn-register");
 
 if (register) {
 register.addEventListener('click',function (e) {
@@ -46,7 +46,7 @@ function addUser() {
 
         if (validation(userName) && validation(userEmail) && validation(userPassword)) {
 
-            const infos = {
+            let infos = {
                 newName: userName.value,
                 newEmail: userEmail.value,
                 newPassword: userPassword.value,
@@ -71,6 +71,7 @@ function addUser() {
 }
 
 
+//no need this function but i leave it may be i will need it
 //Clear Data in Sign Up
 function clearSignup() {
     userName.value = "";
@@ -161,7 +162,7 @@ function existEmailLogin(element) {
 }
 
 
-var enterTo = document.querySelector('#btn-enterToSite');
+const enterTo = document.querySelector('#btn-enterToSite');
 
 if (enterTo) {
 enterTo.addEventListener('click',function (event) {
