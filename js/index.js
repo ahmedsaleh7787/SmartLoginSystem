@@ -42,6 +42,9 @@ register.addEventListener('click',function (e) {
 
 function addUser() {
 
+    if(validation(userName) ){
+
+    
     if (existEmailTest(userEmail)) {
         
         existEmail.classList.replace("d-block", "d-none");
@@ -50,7 +53,7 @@ function addUser() {
 
 
 
-        if (validation(userName) && validation(userEmail) && validation(userPassword)) {
+        if (validation(userEmail) && validation(userPassword)) {
 
             const infos = {
                 newName: userName.value,
@@ -76,6 +79,8 @@ function addUser() {
         userEmail.classList.add("is-invalid");
         userEmail.classList.remove("is-valid");
         userEmail.nextElementSibling.classList.replace("d-block", "d-none");
+
+    }
 
     }
 }
