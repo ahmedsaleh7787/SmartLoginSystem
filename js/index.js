@@ -36,7 +36,7 @@ const register=document.querySelector("#btn-register");
 if (register) {
 register.addEventListener('click',function (e) {
     e.preventDefault();//no need here but i add it to learn
-    addUser();
+     addUser();
 });
 }
 
@@ -69,7 +69,7 @@ function addUser() {
 
 
             // refrance : https://www.w3schools.com/howto/howto_js_redirect_webpage.asp
-            window.location.href = "index.html";
+            // window.location.href = "index.html";
 
         }
 
@@ -103,8 +103,28 @@ function clearSignup() {
 }
 
 
-function addUserToLocalStorage() {
-    localStorage.setItem(LocalStorageKey, JSON.stringify(infoList));
+async function addUserToLocalStorage() {
+console.log("jjjjjjjjjjjjj");
+
+    // localStorage.setItem(LocalStorageKey, JSON.stringify(infoList));
+try {
+    
+    const response = await fetch("https://script.google.com/macros/s/AKfycbyJd1_k8SGM56yFoyvpblfUjalAD0oIvm0VV6eG1fLhJp-CUAbwXpWthvzP0rNvgxZ3/exec", {
+      method: "POST",
+      body: JSON.stringify(infoList),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    });
+
+    const result = await response.json();
+    console.log(result);
+    alert(result.message);
+} catch (error) {
+    console.log(error);
+    
+}
+
 }
 
 
