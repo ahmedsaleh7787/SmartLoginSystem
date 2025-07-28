@@ -36,6 +36,85 @@
         </div>
     </section>
 
+
+    <!-- card section -->
+
+    
+  <div class="container-fluid  ">
+    <div class="row d-flex  justify-content-center align-items-center" style=" height: 100vh;">
+
+
+        <div class="card text-center rounded " style="width: 18rem; ">
+          <img src="img/logo.png" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title fs-1 fw-bold" id="result">سيظهر رقم الكارت هنا</h5>
+            <img id="qrcode" src="" alt="" class="mb-3">
+            <p class="card-text">اضغط على الزر التالى ل اظهار رقم كارت جديد</p>
+
+
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" id="get"
+              data-bs-target="#exampleModal">
+              اضغط هنا</button>
+
+          </div>
+        </div>
+
+
+
+
+
+
+    </div>
+  </div>
+
+  <div id="loader"
+    class="h vh-100 position-fixed top-0 start-0 end-0 bottom-0 d-none justify-content-center align-items-center">
+
+    <div class="loader "></div>
+
+  </div>
+
+
+
+
+
+
+
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">طلب كارت جديد</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <span>تأكد انك متصل ب الواى فاى ..</span>
+          <span class="text-danger fw-bold ">لا يمكنك الرجوع عن هذه الخطوه .. </span>
+          <span>
+            متأكد انك تريد طلب رقم جديد !!؟
+
+          </span>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">لا اريد</button>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="confirm">متأكد , اريد رقم
+            جديد</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/mainpage.js"></script>
 </body>
