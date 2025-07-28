@@ -33,24 +33,27 @@
                     <div class="mb-3">
                         <input type="text" class="form-control" id="SignupInputName" aria-describedby="emailHelp"
                             placeholder="Enter your name">
-                        <p class="d-none text-danger text-start">Please enter a username between 3–15 characters. Use lowercase letters, numbers, _ or -.No spaces or capitals.</p>
+                        <p class="d-none text-danger text-start">Please enter a username between 3–15 characters. Use
+                            lowercase letters, numbers, _ or -.No spaces or capitals.</p>
                     </div>
 
                     <div class="mb-3">
                         <input type="email" class="form-control" id="SignupInputEmail1" aria-describedby="emailHelp"
                             placeholder="Enter your email">
                         <p class="d-none text-danger text-start">Must be a valid email, like name@example.com.</p>
-                        <p class="d-none text-danger text-start d-none" id="existEmail" >Email already exists - write another email</p>
+                        <p class="d-none text-danger text-start d-none" id="existEmail">Email already exists - write
+                            another email</p>
 
                     </div>
 
                     <div class="margin-buttom">
                         <input type="password" class="form-control" id="SignupInputPassword"
-                            aria-describedby="passwordHelp" placeholder="Enter your password" >
-                        <p class="d-none text-danger text-start">At least 8 characters, with:1 uppercase letter , 1 lowercase letter , 1 number , 1 special character (e.g. @, #, !)</p>
+                            aria-describedby="passwordHelp" placeholder="Enter your password">
+                        <p class="d-none text-danger text-start">At least 8 characters, with:1 uppercase letter , 1
+                            lowercase letter , 1 number , 1 special character (e.g. @, #, !)</p>
                     </div>
 
-                    <button id="btn-register"  type="submit" class="btn btn-info w-100 mb-2">Sign up</button>
+                    <button id="btn-register" type="submit" class="btn btn-info w-100 mb-2">Sign up</button>
 
                     <p>You have account? <a class=" text-white" href="index.html">Signin</a></p>
 
@@ -62,7 +65,10 @@
     </section>
 
 
-
+    <div id="loader" class="h vh-100 position-fixed top-0 start-0 end-0 bottom-0 d-none justify-content-center align-items-center">
+        <div class="loader "></div>
+    </div>
+    
 
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/index.js"></script>

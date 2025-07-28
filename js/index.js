@@ -14,73 +14,70 @@ const LocalStorageKeyLogin = "loginKey";
 let infoList = [];
 
 
-
-
 if (JSON.parse(localStorage.getItem(LocalStorageKey))) {
 
     infoList = JSON.parse(localStorage.getItem(LocalStorageKey));
 
-}
+}//need-edit
 
 
 if (JSON.parse(localStorage.getItem(LocalStorageKeyLogin))) {
 
-            window.location.href = "mainpage.html";
+    window.location.href = "mainpage.html";
 
 }
 
 
-const register=document.querySelector("#btn-register");
+const register = document.querySelector("#btn-register");
 
 
 if (register) {
-register.addEventListener('click',function (e) {
-    e.preventDefault();//no need here but i add it to learn
-     addUser();
-});
+    register.addEventListener('click', function (e) {
+        e.preventDefault();//no need here but i add it to learn
+        addUser();
+    });
 }
 
 function addUser() {
 
-    if(validation(userName) ){
-
-    
-    if (existEmailTest(userEmail)) {
-        
-        existEmail.classList.replace("d-block", "d-none");
-        userEmail.classList.add("is-valid");
-        userEmail.classList.remove("is-invalid");
+    if (validation(userName)) {
 
 
+        if (existEmailTest(userEmail)) {
 
-        if (validation(userEmail) && validation(userPassword)) {
+            existEmail.classList.replace("d-block", "d-none");
+            userEmail.classList.add("is-valid");
+            userEmail.classList.remove("is-invalid");
 
-            const infos = {
-                newName: userName.value,
-                newEmail: userEmail.value,
-                newPassword: userPassword.value,
+
+
+            if (validation(userEmail) && validation(userPassword)) {
+
+                const infos = {
+                    newName: userName.value,
+                    newEmail: userEmail.value,
+                    newPassword: userPassword.value,
+                }
+
+                infoList.push(infos);
+
+                addUserToCloudStorage();
+
+                clearSignup();
+
+
+                // refrance : https://www.w3schools.com/howto/howto_js_redirect_webpage.asp
+
             }
 
-            infoList.push(infos);
+        } else {
 
-            addUserToLocalStorage();
-
-            clearSignup();
-
-
-            // refrance : https://www.w3schools.com/howto/howto_js_redirect_webpage.asp
-            // window.location.href = "index.html";
+            existEmail.classList.replace("d-none", "d-block");
+            userEmail.classList.add("is-invalid");
+            userEmail.classList.remove("is-valid");
+            userEmail.nextElementSibling.classList.replace("d-block", "d-none");
 
         }
-
-    } else {
-
-        existEmail.classList.replace("d-none", "d-block");
-        userEmail.classList.add("is-invalid");
-        userEmail.classList.remove("is-valid");
-        userEmail.nextElementSibling.classList.replace("d-block", "d-none");
-
-    }
 
     }
 }
@@ -102,29 +99,39 @@ function clearSignup() {
 
 }
 
+async function addUserToCloudStorage() {
+    const name = document.getElementById("SignupInputName").value;
+    const email = document.getElementById("SignupInputEmail1").value;
+    const pass = document.getElementById("SignupInputPassword").value;
+    const loader = document.getElementById("loader");
 
-async function addUserToLocalStorage() {
-console.log("jjjjjjjjjjjjj");
+    // إظهار اللودر
+    loader.classList.remove('d-none');
+    loader.classList.add('d-flex');
 
-    // localStorage.setItem(LocalStorageKey, JSON.stringify(infoList));
-try {
-    
-    const response = await fetch("https://script.google.com/macros/s/AKfycbyJd1_k8SGM56yFoyvpblfUjalAD0oIvm0VV6eG1fLhJp-CUAbwXpWthvzP0rNvgxZ3/exec", {
-      method: "POST",
-      body: JSON.stringify(infoList),
-      headers: {
-        "Content-Type": "application/json"
-      }
-    });
+    const url = "https://script.google.com/macros/s/AKfycbyuuf0mcYQnQYQ7FHCTuXBOjlXYgP3Y0C6eLRTiOAH_rUDvojNwFt8Szwk85l-1ccvs/exec";
 
-    const result = await response.json();
-    console.log(result);
-    alert(result.message);
-} catch (error) {
-    console.log(error);
-    
-}
+    try {
+        await fetch(url, {
+            method: "POST",
+            mode: "no-cors", // لا يمكن قراءة الرد
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
+            body: `name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&pass=${encodeURIComponent(pass)}`
+        });
 
+        console.log("✅ تم الإرسال! (بدون رد بسبب no-cors)");
+        window.location.href = "index.html";
+
+    } catch (error) {
+        console.error("❌ خطأ:", error);
+        alert("internet connection problem");
+    } finally {
+        // إخفاء اللودر في جميع الحالات
+        loader.classList.remove('d-flex');
+        loader.classList.add('d-none');
+    }
 }
 
 
@@ -185,63 +192,132 @@ const loginEmail = document.querySelector("#InputEmail1");
 const loginPassword = document.querySelector("#InputPassword");
 
 
-function existEmailLogin(element) {
+// function existEmailLogin(element) {
 
 
-    for (let i = 0; i < infoList.length; i++) {
-        if (infoList[i].newEmail === element.value) {
-            return i;
-        }
+//     for (let i = 0; i < infoList.length; i++) {
+//         if (infoList[i].newEmail === element.value) {
+//             return i;
+//         }
+//     }
+
+//     return -1;
+// }
+
+
+// const enterTo = document.querySelector('#btn-enterToSite');
+
+// if (enterTo) {
+//     enterTo.addEventListener('click', function (event) {
+//         event.preventDefault();//no need here but i add it to learn
+
+//         enterToSite()
+//     });
+// }
+
+// const loginUser = [];
+
+// function enterToSite() {
+
+//     if (existEmailLogin(loginEmail) >= 0) {
+
+//         loginEmail.nextElementSibling.classList.replace("d-block", "d-none");
+
+//         if (infoList[existEmailLogin(loginEmail)].newPassword === loginPassword.value) {
+//             loginPassword.nextElementSibling.classList.replace("d-block", "d-none");
+
+//             loginUser.length = 0;//no need
+//             loginUser.push(infoList[existEmailLogin(loginEmail)]);
+//             addLoginUserToLocalStorage();
+
+//             window.location.href = "mainpage.html";
+
+//         } else {
+//             loginPassword.nextElementSibling.classList.replace("d-none", "d-block");
+//         }
+
+
+//     } else {
+//         loginEmail.nextElementSibling.classList.replace("d-none", "d-block");
+//     }
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+ async function login(email,password) {
+        const loader = document.getElementById("loader");
+
+    //   const email = document.getElementById('email').value;
+    //   const password = document.getElementById('password').value;
+      const url = 'https://script.google.com/macros/s/AKfycbwiWMvLS8N4RBiwUyFqokixkhCNHLJc4x9vAnbdjbWG_pUcS-cx2v8ZH5eo8yj7LdYAog/exec';
+
+      const formData = new FormData();
+      formData.append('email', email);
+      formData.append('password', password);
+
+    // إظهار اللودر
+    loader.classList.remove('d-none');
+    loader.classList.add('d-flex');
+
+      try {
+        const response = await fetch(url, {
+          method: 'POST',
+          body: formData
+        });
+        const result = await response.text();
+        return result
+        // document.getElementById('result').textContent = result === 'true' ? '✅ Login successful' : '❌ Invalid credentials';
+      } catch (error) {
+        return '⚠️ Error connecting to server'
+        // document.getElementById('result').textContent = '⚠️ Error connecting to server';
+      }finally{
+                // إخفاء اللودر في جميع الحالات
+        loader.classList.remove('d-flex');
+        loader.classList.add('d-none');
+      }
     }
 
-    return -1;
-}
 
+    
+
+const loginUser = [];
 
 const enterTo = document.querySelector('#btn-enterToSite');
 
 if (enterTo) {
-enterTo.addEventListener('click',function (event) {
-    event.preventDefault();//no need here but i add it to learn
+    enterTo.addEventListener('click',async function (event) {
+        event.preventDefault();//no need here but i add it to learn
 
-    enterToSite()
-});
-}
 
-const loginUser = [];
 
-function enterToSite() {
 
-    if (existEmailLogin(loginEmail) >= 0) {
+   const result = await login(loginEmail.value, loginPassword.value);
 
-        loginEmail.nextElementSibling.classList.replace("d-block", "d-none");
+        if (result.trim() === "true") {
+            alert("✅ تم تسجيل الدخول بنجاح");
 
-        if (infoList[existEmailLogin(loginEmail)].newPassword === loginPassword.value) {
-            loginPassword.nextElementSibling.classList.replace("d-block", "d-none");
-
-            loginUser.length=0;//no need
-            loginUser.push(infoList[existEmailLogin(loginEmail)]);
-            addLoginUserToLocalStorage();
+                   loginUser.length = 0;//no need
+            loginUser.push([loginEmail.value,loginPassword.value]);
+    localStorage.setItem(LocalStorageKeyLogin, JSON.stringify(loginUser));
 
             window.location.href = "mainpage.html";
-
+        } else if (result.trim() === "false") {
+            alert("❌ بيانات الدخول غير صحيحة");
         } else {
-            loginPassword.nextElementSibling.classList.replace("d-none", "d-block");
+            alert("⚠️ حدث خطأ في الاتصال بالسيرفر");
         }
 
 
-    } else {
-        loginEmail.nextElementSibling.classList.replace("d-none", "d-block");
-    }
+    });
 }
-
-
-function addLoginUserToLocalStorage() {
-    localStorage.setItem(LocalStorageKeyLogin, JSON.stringify(loginUser));
-}
-
-
-
-
 
 
