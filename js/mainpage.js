@@ -1,5 +1,9 @@
 "use strict"
 
+
+if(localStorage.getItem("loginKey")){
+
+
 //  mainpage section  ===============
 
 //search how i can get const LocalStorageKeyLogin = "loginKey";
@@ -98,3 +102,10 @@ async function getBusiness() {
 }
 
 document.getElementById("confirm").addEventListener("click", getBusiness);
+
+
+
+}else{
+        window.location.href = "index.html";
+
+}

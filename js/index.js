@@ -253,61 +253,61 @@ const loginPassword = document.querySelector("#InputPassword");
 
 
 
- async function login(email,password) {
-        const loader = document.getElementById("loader");
+async function login(email, password) {
+    const loader = document.getElementById("loader");
 
     //   const email = document.getElementById('email').value;
     //   const password = document.getElementById('password').value;
-      const url = 'https://script.google.com/macros/s/AKfycbwiWMvLS8N4RBiwUyFqokixkhCNHLJc4x9vAnbdjbWG_pUcS-cx2v8ZH5eo8yj7LdYAog/exec';
+    const url = 'https://script.google.com/macros/s/AKfycbwiWMvLS8N4RBiwUyFqokixkhCNHLJc4x9vAnbdjbWG_pUcS-cx2v8ZH5eo8yj7LdYAog/exec';
 
-      const formData = new FormData();
-      formData.append('email', email);
-      formData.append('password', password);
+    const formData = new FormData();
+    formData.append('email', email);
+    formData.append('password', password);
 
     // إظهار اللودر
     loader.classList.remove('d-none');
     loader.classList.add('d-flex');
 
-      try {
+    try {
         const response = await fetch(url, {
-          method: 'POST',
-          body: formData
+            method: 'POST',
+            body: formData
         });
         const result = await response.text();
         return result
         // document.getElementById('result').textContent = result === 'true' ? '✅ Login successful' : '❌ Invalid credentials';
-      } catch (error) {
+    } catch (error) {
         return '⚠️ Error connecting to server'
         // document.getElementById('result').textContent = '⚠️ Error connecting to server';
-      }finally{
-                // إخفاء اللودر في جميع الحالات
+    } finally {
+        // إخفاء اللودر في جميع الحالات
         loader.classList.remove('d-flex');
         loader.classList.add('d-none');
-      }
     }
+}
 
 
-    
+
 
 const loginUser = [];
 
 const enterTo = document.querySelector('#btn-enterToSite');
 
 if (enterTo) {
-    enterTo.addEventListener('click',async function (event) {
+    enterTo.addEventListener('click', async function (event) {
         event.preventDefault();//no need here but i add it to learn
 
 
 
 
-   const result = await login(loginEmail.value, loginPassword.value);
+        const result = await login(loginEmail.value, loginPassword.value);
 
         if (result.trim() === "true") {
             alert("✅ تم تسجيل الدخول بنجاح");
 
-                   loginUser.length = 0;//no need
-            loginUser.push([loginEmail.value,loginPassword.value]);
-    localStorage.setItem(LocalStorageKeyLogin, JSON.stringify(loginUser));
+            loginUser.length = 0;//no need
+            loginUser.push([loginEmail.value, loginPassword.value]);
+            localStorage.setItem(LocalStorageKeyLogin, JSON.stringify(loginUser));
 
             window.location.href = "mainpage.html";
         } else if (result.trim() === "false") {
