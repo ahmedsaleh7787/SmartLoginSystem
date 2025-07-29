@@ -21,61 +21,67 @@
   <nav class="navbar bg-body-tertiary">
     <div class="container-fluid">
       <a href="#" class="navbar-brand text-white text-decoration-none">SMART LOGIN</a>
+
+      <div class=" bg-info rounded px-3 text-center m-2">
+        <h2 class=" text-center fs-5 text-black" id="welcomeUser"></h2>
+      </div>
+
       <button id="btn-logOut" class="btn btn-outline-success" type="submit">Logout</button>
 
     </div>
   </nav>
 
 
+
+
   <!-- mainpage section -->
-  <section class="d-flex justify-content-center align-items-center vh-100">
-    <div class="container w-75 h-25 costum-container">
-      <div class="row d-flex justify-content-center align-items-center">
-        <h1 class="mt-5 mb-4 text-center" id="welcomeUser"></h1>
+
+
+  <!-- remaining cards -->
+  <div class="container-fluid mt-4 ">
+    <div class="row d-flex justify-content-between ">
+
+      <div class="position-relative w-50">
+        <button class="btn btn-info  " id="button-re">الكروت المتبقيه</button>
+        <p id="remainingCards" class="fs-3 fw-bold text-center text-danger position-absolute top-100 start-0 ms-5"></p>
       </div>
+
+
+      <div class="w-50" dir="rtl">
+        <button class="btn btn-info  " id="cus-sear">بحث مخصص</button>
+      </div>
+
     </div>
-  </section>
+  </div>
+
+
+
+
 
 
   <!-- infos -->
-  <div class="container">
+  <div class="container mt-5 d-none" id="c-s" dir="rtl">
     <div class="row d-flex flex-column justify-content-center align-items-center">
 
+      <div class="w-50 text-white" id="ssearch">
 
-<div class="w-50">
+        <h3 class="text-center">بحث عن عدد الكروت المستخدمه حسب الوقت و الاميل</h3>
 
-    <button class="btn btn-info" id="button-re"> remaing cards</button>
+        <input class="form-control" type="email" id="emailnew" placeholder="أدخل الإيميل" required>
+        <label>من وقت:</label>
+        <input class="form-control" type="datetime-local" id="startTime" required>
+        <label>إلى وقت:</label>
+        <input class="form-control" type="datetime-local" id="endTime" required>
 
-    <p>الكروت المتبقيه</p>
-    <p id="remainingCards">
+        <button class="btn btn-light" onclick="search()">🔎 بحث</button>
 
-    </p>
-  </div>
+        <div id="result-new"></div>
 
-
-
-
-  <div class="w-50 text-white" id="ssearch">
-
-  <h3>🔍 بحث عن عدد الـ used حسب الإيميل والوقت</h3>
-
-  <input type="email" id="emailnew" placeholder="أدخل الإيميل" required>
-  <label>من وقت:</label>
-  <input type="datetime-local" id="startTime" required>
-  <label>إلى وقت:</label>
-  <input type="datetime-local" id="endTime" required>
-
-  <button onclick="search()">🔎 بحث</button>
-
-  <div id="result-new"></div>
-
-  </div>
-
-
+      </div>
 
     </div>
   </div>
-  
+
 
   <!-- card section -->
 
@@ -95,18 +101,15 @@
           <!-- Button trigger modal -->
           <button type="button" class="btn btn-primary" data-bs-toggle="modal" id="get" data-bs-target="#exampleModal">
             اضغط هنا</button>
-          <button class="btn btn-info d-none " id="btn-print">print</button>
+          <button class="btn btn-info d-none" id="btn-print">طباعه</button>
 
         </div>
       </div>
-
-
-
-
-
-
     </div>
   </div>
+
+
+
 
   <div id="loader"
     class="h vh-100 position-fixed top-0 start-0 end-0 bottom-0 d-none justify-content-center align-items-center">

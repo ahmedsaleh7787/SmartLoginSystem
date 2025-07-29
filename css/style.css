@@ -218,12 +218,18 @@ a:hover {
 
 
 
+.form-control::placeholder{
+  color: white;
+}
 
 
+#welcomeUser{
+  width: fit-content;
+}
 
-
-
-
+h2{
+  margin: 0;
+}
 
 
 /* ============= */

@@ -188,6 +188,8 @@ window.print()
 
       if (!email || !startTime || !endTime) {
         resultDiv.textContent = "⚠️ من فضلك أدخل كل البيانات.";
+         document.getElementById("loader").classList.replace('d-flex', 'd-none');
+
         return;
       }
 
@@ -212,3 +214,9 @@ window.print()
       }
     }
 
+
+
+
+    document.getElementById("cus-sear").addEventListener("click",function () {
+        document.getElementById("c-s").classList.replace("d-none","d-block")
+    })
