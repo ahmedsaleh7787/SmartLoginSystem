@@ -2,63 +2,103 @@
 <html lang="en">
 
 <head>
-    <title>Smart Login Main</title>
+  <title>Smart Login Main</title>
 
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <meta name="description" content="Smart Login Main" />
-    <meta name="keyword" content="Main" />
-    <meta name="author" content="Ahmed Saleh" />
+  <meta name="description" content="Smart Login Main" />
+  <meta name="keyword" content="Main" />
+  <meta name="author" content="Ahmed Saleh" />
 
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
-    <link rel="stylesheet" href="css/mediaQ.css" />
-    <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <link rel="stylesheet" href="css/mediaQ.css" />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 
 <body>
-    <!-- nav -->
-<nav class="navbar bg-body-tertiary">
-  <div class="container-fluid">
-    <a href="#" class="navbar-brand text-white text-decoration-none">SMART LOGIN</a>
-      <button  id="btn-logOut"  class="btn btn-outline-success" type="submit">Logout</button>
+  <!-- nav -->
+  <nav class="navbar bg-body-tertiary">
+    <div class="container-fluid">
+      <a href="#" class="navbar-brand text-white text-decoration-none">SMART LOGIN</a>
+      <button id="btn-logOut" class="btn btn-outline-success" type="submit">Logout</button>
+
+    </div>
+  </nav>
+
+
+  <!-- mainpage section -->
+  <section class="d-flex justify-content-center align-items-center vh-100">
+    <div class="container w-75 h-25 costum-container">
+      <div class="row d-flex justify-content-center align-items-center">
+        <h1 class="mt-5 mb-4 text-center" id="welcomeUser"></h1>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- infos -->
+  <div class="container">
+    <div class="row d-flex flex-column justify-content-center align-items-center">
+
+
+<div class="w-50">
+
+    <button class="btn btn-info" id="button-re"> remaing cards</button>
+
+    <p>الكروت المتبقيه</p>
+    <p id="remainingCards">
+
+    </p>
+  </div>
+
+
+
+
+  <div class="w-50 text-white" id="ssearch">
+
+  <h3>🔍 بحث عن عدد الـ used حسب الإيميل والوقت</h3>
+
+  <input type="email" id="emailnew" placeholder="أدخل الإيميل" required>
+  <label>من وقت:</label>
+  <input type="datetime-local" id="startTime" required>
+  <label>إلى وقت:</label>
+  <input type="datetime-local" id="endTime" required>
+
+  <button onclick="search()">🔎 بحث</button>
+
+  <div id="result-new"></div>
 
   </div>
-</nav>
 
 
-    <!-- mainpage section -->
-    <section class="d-flex justify-content-center align-items-center vh-100">
-        <div class="container w-75 h-25 costum-container">
-            <div class="row d-flex justify-content-center align-items-center">
-                <h1 class="mt-5 mb-4 text-center" id="welcomeUser"></h1>
-            </div>
-        </div>
-    </section>
+
+    </div>
+  </div>
+  
+
+  <!-- card section -->
 
 
-    <!-- card section -->
-
-    
   <div class="container-fluid  ">
     <div class="row d-flex  justify-content-center align-items-center" style=" height: 100vh;">
 
 
-        <div class="card text-center rounded " style="width: 18rem; ">
-          <img src="img/logo.png" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title fs-1 fw-bold" id="result">سيظهر رقم الكارت هنا</h5>
-            <img id="qrcode" src="" alt="" class="mb-3">
-            <p class="card-text">اضغط على الزر التالى ل اظهار رقم كارت جديد</p>
+      <div class="card text-center rounded bg-white" id="printArea" style="width: 18rem; ">
+        <img src="img/logo.png" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title fs-1 fw-bold text-black" id="result">سيظهر رقم الكارت هنا</h5>
+          <img id="qrcode" src="" alt="" class="mb-3">
+          <p class="card-text  text-black">اضغط على الزر التالى ل اظهار رقم كارت جديد</p>
 
 
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" id="get"
-              data-bs-target="#exampleModal">
-              اضغط هنا</button>
+          <!-- Button trigger modal -->
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" id="get" data-bs-target="#exampleModal">
+            اضغط هنا</button>
+          <button class="btn btn-info d-none " id="btn-print">print</button>
 
-          </div>
         </div>
+      </div>
 
 
 
@@ -115,8 +155,8 @@
 
 
 
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/mainpage.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/mainpage.js"></script>
 </body>
 
 </html>

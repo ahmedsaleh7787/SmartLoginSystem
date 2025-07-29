@@ -135,3 +135,110 @@ a:hover {
 }
 @keyframes l8 {to{transform: rotate(.5turn)}}
 
+
+
+
+
+
+
+
+
+
+/* 
+@media print {
+  @page {
+    size: 58mm auto; 
+    margin: 0;
+  }
+
+  body * {
+    visibility: hidden;
+  }
+
+  #printArea, #printArea * {
+    visibility: visible;
+  }
+
+  #get {
+    display: none !important;
+  }
+
+  #btn-print {
+    display: none !important;
+  }
+
+  #printArea {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 58mm;
+  }
+
+
+} */
+
+
+
+@media print {
+  @page {
+    size: 58mm auto;
+    margin: 0;
+  }
+
+  body * {
+    visibility: hidden;
+  }
+
+  #printArea, #printArea * {
+    visibility: visible;
+  }
+
+  #get,
+  #btn-print {
+    display: none !important;
+  }
+
+  #printArea {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 58mm;
+
+    /* ✅ الجزء المهم هنا */
+    max-height: 160mm; /* أو أي ارتفاع يناسب صفحة واحدة فقط */
+    overflow: hidden;
+  }
+
+  /* إيقاف التكرار أو التمدد */
+  html, body {
+    height: auto;
+    overflow: hidden;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+/* ============= */
+/* search */
+
+
+
+#ssearch{
+    input, button {
+      padding: 8px;
+      margin: 8px 0;
+      width: 100%;
+    }
+    #result-new {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+}

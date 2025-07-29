@@ -109,7 +109,8 @@ async function addUserToCloudStorage() {
     loader.classList.remove('d-none');
     loader.classList.add('d-flex');
 
-    const url = "https://script.google.com/macros/s/AKfycbyuuf0mcYQnQYQ7FHCTuXBOjlXYgP3Y0C6eLRTiOAH_rUDvojNwFt8Szwk85l-1ccvs/exec";
+    //signup-data
+    const url = "https://script.google.com/macros/s/AKfycby_fA_V6tlsScJLRAaYed1bygdbF0zBbRZEzh3BWlJ1Yov0EM2suCpzs-NVbgijnUg2/exec";
 
     try {
         await fetch(url, {
@@ -121,7 +122,7 @@ async function addUserToCloudStorage() {
             body: `name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&pass=${encodeURIComponent(pass)}`
         });
 
-        console.log("✅ تم الإرسال! (بدون رد بسبب no-cors)");
+        alert("✅ تم التسجيل بنجاح");
         window.location.href = "index.html";
 
     } catch (error) {
@@ -258,6 +259,7 @@ async function login(email, password) {
 
     //   const email = document.getElementById('email').value;
     //   const password = document.getElementById('password').value;
+    //validate sign in code
     const url = 'https://script.google.com/macros/s/AKfycbwiWMvLS8N4RBiwUyFqokixkhCNHLJc4x9vAnbdjbWG_pUcS-cx2v8ZH5eo8yj7LdYAog/exec';
 
     const formData = new FormData();
@@ -319,5 +321,8 @@ if (enterTo) {
 
     });
 }
+
+
+
 
 
